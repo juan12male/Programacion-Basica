@@ -23,9 +23,11 @@ def registro_usuario():
         horas = int(input("¿Cuántas horas desea contratar? "))
         costo_total = calcular_costo(curso, horas)
         print(f"¡Registro exitoso! Costo total: {costo_total} colones")
+    
+    def opcionesAdministrador():
 
-opcion =1
-while True:
+opcion =0
+while opcion != 4:
     print("1.Alguna prueba\n2.Dictamen médico\n3.Opciones de administrador")
     opcion=int(input("Seleccione la opción: "))
     if opcion==1:
@@ -33,19 +35,7 @@ while True:
     elif opcion==2:
         break
     elif opcion == 3:
-        while ingresoContrasena != contrasena:
-            ingresoContrasena=input("Ingrese la contraseña de administrador:")
-            print("Contraseña incorrecta. Por favor intente nuevamente.")
-            
-        else:
-            print("Bienvenido a sus opciones de administrador.")
-            print("1. Ver dinero recaudado.\n2. Ver numero de reservas.")
-            opcionAdmin=int(input("Ingrese la opcion deseada:"))
-            if opcionAdmin == 1:
-                print("El dinero recaudado es:",dineroRecaudado)
-            elif opcionAdmin == 2:
-                print("El numero de reservas es:",numeroReservas)
-
+        
 
 
 
