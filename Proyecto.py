@@ -2,10 +2,10 @@ dineroRecaudado=0
 numeroReservas=0
 ingresoContrasena=""
 contrasena="manejo25"
-nombre=input("Introduzca su nombre y primer apellido: ")
-usuario=input("Escriba su usuario: ")
-cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
-correoElectronico=input("Ingrese su correo electronico: ")
+# nombre=input("Introduzca su nombre y primer apellido: ")
+# usuario=input("Escriba su usuario: ")
+# cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
+# correoElectronico=input("Ingrese su correo electronico: ")
 
 def calcularCosto(curso, horas):
     costo_por_hora = 2000 if curso == 'teorico' else 3000
@@ -41,14 +41,19 @@ def opcionesAdministrador():
 
 def facturaElectronica():
     nombre=input("Por favor ingrese su nombre: ")
-    cedula=float(input("Escriba su número de identificación sin espacios y con los ceros: "))
+    cedula=(input("Escriba su número de identificación sin espacios y con los ceros: "))
     correoElectronico=input("Ingrese su correo electronico: ")
     file=open("Factura","w")
+    file.write("Factura a nombre de: "+nombre)
+    file.write("\n")
+    file.write("Numero de cedula: "+cedula)
+    file.write("\n")
+    file.write("Correo electronico: "+correoElectronico)
+    file.write("\n")
+    file.close()
     
 
-
-
-    
+  
 opcion = 0
 
 while opcion != 4:
@@ -57,6 +62,6 @@ while opcion != 4:
     if opcion==1:
         registroUsuario()
     elif opcion==2:
-        break
+        facturaElectronica()
     elif opcion == 3:
         opcionesAdministrador()
