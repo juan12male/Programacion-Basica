@@ -11,24 +11,25 @@ usuario=input("Escriba su usuario: ")
 listaUsuarios.append(usuario)
 cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
 correoElectronico=input("Ingrese su correo electronico: ")
-
-def calcularCosto(curso, horas):
-    costo_por_hora = 2000 if curso == 'teorico' else 3000
-    return costo_por_hora * horas
-
-def registroUsuario():
-    curso = input("¿Qué curso desea tomar? (teorico/practico): ")
-
-    if curso == 'practico':
-        tipo_vehiculo = input("¿Utilizará vehículo propio o proporcionado? (propio/proporcionado): ")
-        horas = int(input("¿Cuántas horas desea contratar? "))
-        costo_total = calcularCosto(curso, horas)
-        print(f" Costo total: {costo_total} colones")
-    else:
-        horas = int(input("¿Cuántas horas desea contratar? "))
-        costo_total = calcularCosto(curso, horas)
-        print(f"¡Registro exitoso! Costo total: {costo_total} colones")
     
+def clasesManejo():
+        tipoVehiculo = int(input("1.Propio\n2.Proporcionad\n¿Utilizará vehículo propio o proporcionado?:"))
+        horas = int(input("¿Cuántas horas desea contratar? "))
+        costoTotal=0
+        if tipoVehiculo == 1:
+            costoTotal=3000*horas
+            print("El costo es de: ",costoTotal)
+        elif tipoVehiculo == 2:
+            costoTotal=4000*horas
+            print("El costo es de: ",costoTotal)
+        ingresarEspacio(espacio)
+        opcion=input("Desea factura electrónica?\n1.Sí\n2.No")
+        if opcion == 1:
+            facturaElectronica()
+        else:
+            print("Gracias por reservar su clases de manejo con nosotros!")
+        
+
     
 def opcionesAdministrador():
     ingresoContrasena=input("Ingrese su contraseña de administrador: ")
@@ -76,7 +77,6 @@ def ingresarEspacio(espacio):
         if horario >=4 and horario<=10:
             if espacio[horario-1] == "Vacio":
                 espacio[horario-1]= nombre
-                break
             else:
                 print("El horario seleccionado se encuentra ocupado por",nombre)
         else:
@@ -124,13 +124,13 @@ def mostrar(espacio):
 opcion = 0
 
 while opcion != 5:
-    print("1.Alguna prueba\n2.Dictamen médico\n3.Opciones de administrador\n4.Seleccionar horario clases de manejo")
+    print("1.Curso Teórico\n2.Clases de manejo\n3.Dictámen Médico\n4.Administrador")
     opcion=int(input("Seleccione la opción: "))
     if opcion==1:
-        registroUsuario()
-    elif opcion==2:
-        facturaElectronica()
-    elif opcion == 3:
-        opcionesAdministrador()
-    elif opcion==4:
         ingresarEspacio()
+    elif opcion==2:
+        clasesManejo()
+    elif opcion == 3:
+        break
+    elif opcion==4:
+        opcionesAdministrador()
