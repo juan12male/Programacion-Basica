@@ -24,13 +24,13 @@ def registroUsuario():
         horas = int(input("¿Cuántas horas desea contratar? "))
         costo_total = calcularCosto(curso, horas)
         print(f" Costo total: {costo_total} colones")
-        def ingresarEspacio(espacio):
-            while True:
-                print("Seleccione el horario que le funcione:")
     else:
         horas = int(input("¿Cuántas horas desea contratar? "))
         costo_total = calcularCosto(curso, horas)
         print(f"¡Registro exitoso! Costo total: {costo_total} colones")
+def ingresarEspacio(espacio):
+    while True:
+        print("Seleccione el horario que le funcione: ")
 
     
     
