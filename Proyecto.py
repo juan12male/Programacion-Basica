@@ -48,17 +48,27 @@ def opcionesAdministrador():
 def facturaElectronica():
     nombre=input("Por favor ingrese su nombre: ")
     cedula=(input("Escriba su número de identificación sin espacios y con los ceros: "))
-    correoElectronico=input("Ingrese su correo electronico: ")
+    correoElectronico=input("Ingrese su correo electronico al que se envía la factura: ")
+    direccionFisica=input("Por favor ingrese su dirección fisica: ")
     file=open("Factura","w")
+    file.write("Escuela de manejo Racing")
+    file.write("\nHeredia, Santa Cecilia, del Walmart, 1.3km al oeste, sobre carretera a la Aurora de Heredia")
+    file.write("\n+506 8358-3536")
+    file.write("\n")
+    file.write("\n")
     file.write("Factura a nombre de: "+nombre)
     file.write("\n")
     file.write("Numero de cedula: "+cedula)
     file.write("\n")
     file.write("Correo electronico: "+correoElectronico)
     file.write("\n")
+    file.write("Dirección fisica: "+direccionFisica)
+    file.write("\n")
     file.close()
     
 def ingresarEspacio(espacio):
+    
+    
     while True:
         print("Seleccione el horario que le funcione: \n.Seleccione 4 para reservar de 8am a 9am\n.Seleccione 5 para reservar de 9am a 10am\n.Seleccione 6 para reservar de 10am a 11am\n.Seleccione 7 para reservar de 11am a 12md\n.Seleccione 8 para reservar de 12md a 1pm\n.Seleccione 9 para reservar de 2pm a 3pm\n.Seleccione 10 para reservar de 4pm a 5pm")
         horario = int(input("Ingrese el número de horario que prefiera:"))
@@ -94,21 +104,21 @@ def mostrar(espacio):
             print("El horario",x+1,"esta vacio")
         else:
             print("El horario",x+1,"esta ocupado por:",espacio[x])
-opcion =1
+# opcion =1
 
-while opcion !=3:
-    print("1.Reservar horario\n2.Liberar horario\n3.Salir")
-    opcion = int(input("Seleccione la opción que desea:"))
-    if opcion ==1:
-        espacio = ingresarEspacio(espacio)
-        mostrar(espacio)
-    elif opcion ==2:
-        espacio =liberarHorario(espacio)
-        mostrar(espacio)
-    elif opcion==3:
-        print("Mucha gracias")
-    else:
-        print("Opcion incorrecta")
+# while opcion !=3:
+#     print("1.Reservar horario\n2.Liberar horario\n3.Salir")
+#     opcion = int(input("Seleccione la opción que desea:"))
+#     if opcion ==1:
+#         espacio = ingresarEspacio(espacio)
+#         mostrar(espacio)
+#     elif opcion ==2:
+#         espacio =liberarHorario(espacio)
+#         mostrar(espacio)
+#     elif opcion==3:
+#         print("Mucha gracias")
+#     else:
+#         print("Opcion incorrecta")
 
   
 opcion = 0
