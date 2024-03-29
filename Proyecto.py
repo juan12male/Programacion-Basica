@@ -2,9 +2,9 @@ dineroRecaudado=0
 numeroReservas=0
 ingresoContrasena=""
 contrasena="manejo25"
-diasPractico=["martes","miercoles","jueves","viernes","sabado","domingo"]
 espacio=["vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio"]
 listaUsuarios=[]
+listaNombres=[]
 nombre=input("Introduzca su nombre y primer apellido: ")
 listaNombres.append(nombre)
 usuario=input("Escriba su usuario: ")
