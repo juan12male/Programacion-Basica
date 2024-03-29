@@ -2,10 +2,14 @@ dineroRecaudado=0
 numeroReservas=0
 ingresoContrasena=""
 contrasena="manejo25"
-# nombre=input("Introduzca su nombre y primer apellido: ")
-# usuario=input("Escriba su usuario: ")
-# cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
-# correoElectronico=input("Ingrese su correo electronico: ")
+listaNombres=[]
+listaUsuarios=[]
+nombre=input("Introduzca su nombre y primer apellido: ")
+listaNombres.append(nombre)
+usuario=input("Escriba su usuario: ")
+listaUsuarios.append(usuario)
+cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
+correoElectronico=input("Ingrese su correo electronico: ")
 
 def calcularCosto(curso, horas):
     costo_por_hora = 2000 if curso == 'teorico' else 3000
