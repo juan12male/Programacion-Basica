@@ -110,8 +110,8 @@ def dictamenMedico():
     tipoSangre=input("Escriba su tipo de sangre: ")
     peso=int(input("Digite su peso en kilogramos: "))
     estatura=input("Digite su estatura en metros: ")
-    donador=("Desea ser donador de órganos en caso de muerte en un accidente de tránsito?Escriba si o no: ")
-    print("La persona llamada",nombre,"con el número de cédula:",cedula,"tipo de sangre:",tipoSangre,"con un peso de",peso,"kilogramos, y una estatura de",estatura,"metros, hace constar en su dicatemen médico, que",donador,"desea ser donador de órganos.")
+    donador=input("Desea ser donador de órganos en caso de muerte en un accidente de tránsito?n\Escriba si o no: ")
+    print("La persona llamada",nombre,"con el número de cédula:",cedula,"tipo de sangre:",tipoSangre,"con un peso de",peso,"kilogramos, y una estatura de",estatura,"metros, hace constar en su dicatemen médico, que",donador,"desea ser donador/a de órganos.")
 # opcion =1
 
 # while opcion !=3:
