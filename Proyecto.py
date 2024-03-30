@@ -13,7 +13,7 @@ cedula=float(input("Escriba su número de identificación sin espacios y con los
 correoElectronico=input("Ingrese su correo electronico: ")
     
 def clasesManejo():
-        tipoVehiculo = int(input("1.Propio\n2.Proporcionad\n¿Utilizará vehículo propio o proporcionado?:"))
+        tipoVehiculo = int(input("1.Propio\n2.Proporcionado\n¿Utilizará vehículo propio o proporcionado?:"))
         horas = int(input("¿Cuántas horas desea contratar? "))
         costoTotal=0
         if tipoVehiculo == 1:
@@ -23,7 +23,7 @@ def clasesManejo():
             costoTotal=4000*horas
             print("El costo es de: ",costoTotal)
         ingresarEspacio(espacio)
-        opcion=input("Desea factura electrónica?\n1.Sí\n2.No")
+        opcion=input("Desea factura electrónica?\n1.Sí\n2.No\n")
         if opcion == 1:
             facturaElectronica()
         else:
@@ -79,6 +79,7 @@ def ingresarEspacio(espacio):
                 espacio[horario-1]= nombre
             else:
                 print("El horario seleccionado se encuentra ocupado por",nombre)
+                break
         else:
             print("El horario seleccionado no existe")
     return espacio
@@ -104,6 +105,13 @@ def mostrar(espacio):
             print("El horario",x+1,"esta vacio")
         else:
             print("El horario",x+1,"esta ocupado por:",espacio[x])
+
+def dictamenMedico():
+    tipoSangre=input("Escriba su tipo de sangre: ")
+    peso=int(input("Digite su peso en kilogramos: "))
+    estatura=input("Digite su estatura en metros: ")
+    donador=("Desea ser donador de órganos en caso de muerte en un accidente de tránsito?Escriba si o no: ")
+    print("La persona llamada",nombre,"con el número de cédula:",cedula,"tipo de sangre:",tipoSangre,"con un peso de",peso,"kilogramos, y una estatura de",estatura,"metros, hace constar en su dicatemen médico, que",donador,"desea ser donador de órganos.")
 # opcion =1
 
 # while opcion !=3:
@@ -131,6 +139,6 @@ while opcion != 5:
     elif opcion==2:
         clasesManejo()
     elif opcion == 3:
-        break
+        dictamenMedico()
     elif opcion==4:
         opcionesAdministrador()
