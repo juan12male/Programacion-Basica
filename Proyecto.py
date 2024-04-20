@@ -7,7 +7,7 @@ listaUsuarios=[]
 listaNombres=[]
 nombre=input("Introduzca su nombre y primer apellido: ")
 listaNombres.append(nombre)
-usuario=input("Escriba su usuario: ")
+usuario=input("Invente su usuario: ")
 listaUsuarios.append(usuario)
 cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
 correoElectronico=input("Ingrese su correo electronico: ")
