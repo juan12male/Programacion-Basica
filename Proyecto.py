@@ -138,7 +138,7 @@ while opcion != 6:
     if opcion==1:
         ingresarEspacio(espacio,nombre,numeroReservas)
     elif opcion==2:
-        clasesManejo(dineroRecaudado,numeroReservas)
+        clasesManejo(dineroRecaudado)
     elif opcion == 3:
         dictamenMedico()
     elif opcion==4:
