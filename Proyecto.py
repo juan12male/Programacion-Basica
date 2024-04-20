@@ -15,7 +15,7 @@ correoElectronico=input("Ingrese su correo electronico: ")
 def clasesManejo(dineroRecaudado):
         tipoVehiculo = int(input("1.Propio\n2.Proporcionado\n¿Utilizará vehículo propio o proporcionado?:"))
         horas = int(input("¿Cuántas horas desea contratar? "))
-        if horas > 1:
+        if horas < 1:
             print("Debe reservar al menos 1 hora")
         else:
             costoTotal=0
