@@ -8,7 +8,7 @@ listaUsuarios=[]
 listaNombres=[]
 nombre=input("Introduzca su nombre y primer apellido: ")
 listaNombres.append(nombre)
-usuario=input("Escriba su usuario: ")
+usuario=input("Cree su usuario: ")
 listaUsuarios.append(usuario)
 cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
 correoElectronico=input("Ingrese su correo electronico: ")
@@ -16,7 +16,7 @@ correoElectronico=input("Ingrese su correo electronico: ")
 def clasesManejo(dineroRecaudado):
         tipoVehiculo = int(input("1.Propio\n2.Proporcionado\n¿Utilizará vehículo propio o proporcionado?:"))
         horas = int(input("¿Cuántas horas desea contratar? "))
-        if horas > 1:
+        if horas < 1:
             print("Debe reservar al menos 1 hora")
         else:
             costoTotal=0
@@ -29,11 +29,7 @@ def clasesManejo(dineroRecaudado):
                 dineroRecaudado+=costoTotal
                 print("El costo es de: ",costoTotal)
             ingresarEspacio(espacioManejo,nombre,numeroReservas)
-            opcion=input("Desea factura electrónica?\n1.Sí\n2.No\n")
-            if opcion == 1:
-                facturaElectronica()
-            else:
-                print("Gracias por reservar su clases de manejo con nosotros!")
+        
         
         return dineroRecaudado
         
@@ -59,6 +55,7 @@ def facturaElectronica():
     cedula=(input("Escriba su número de identificación sin espacios y con los ceros: "))
     correoElectronico=input("Ingrese su correo electronico al que se envía la factura: ")
     direccionFisica=input("Por favor ingrese su dirección fisica: ")
+    costo=input("Por favor ingrese el monto de su factura: ")
     file=open("Factura","w")
     file.write("Escuela de manejo Racing")
     file.write("\nHeredia, Santa Cecilia, del Walmart, 1.3km al oeste, sobre carretera a la Aurora de Heredia")
@@ -72,6 +69,8 @@ def facturaElectronica():
     file.write("Correo electronico: "+correoElectronico)
     file.write("\n")
     file.write("Dirección fisica: "+direccionFisica)
+    file.write("\n")
+    file.write("Por un costo total de: "+costo+" colones")
     file.write("\n")
     file.close()
     
@@ -88,7 +87,7 @@ def ingresarEspacio(matriz,name,numeroReservas):
             
         
             
-    return matriz
+    return matriz and numeroReservas
 
 
 def liberarHorario(espacio,numeroReservas):
@@ -117,18 +116,19 @@ def mostrar(espacioTeorico,espacioManejo):
             print("El horario",x+1,"esta ocupado por:",matriz[x])
 
 def dictamenMedico():
+    file=open("Dictamen Médico","w")
     tipoSangre=input("Escriba su tipo de sangre: ")
     peso=int(input("Digite su peso en kilogramos: "))
     estatura=input("Digite su estatura en metros: ")
     donador=input("Desea ser donador de órganos en caso de muerte en un accidente de tránsito?n\Escriba si o no: ")
-    print("La persona llamada",nombre,"con el número de cédula:",cedula,"tipo de sangre:",tipoSangre,"con un peso de",peso,"kilogramos, y una estatura de",estatura,"metros, hace constar en su dicatemen médico, que",donador,"desea ser donador/a de órganos.")
-
+    file.write(f"La persona llamada {nombre} con el número de cédula: {cedula} tipo de sangre: {tipoSangre} con un peso de {peso} kilogramos, y una estatura de {estatura} metros, hace constar en su dicatemen médico, que {donador} desea ser donador/a de órganos.")
+    file.close()
 
   
 opcion = 0
 
 while opcion != 6:
-    print("1.Curso Teórico\n2.Clases de manejo\n3.Dictámen Médico\n4.Administrador\n5.Horarios disponibles")
+    print("1.Curso Teórico\n2.Clases de manejo\n3.Dictámen Médico\n4.Administrador\n5.Factura Electrónica\n6.Horarios disponibles")
     opcion=int(input("Seleccione la opción: "))
     if opcion==1:
         ingresarEspacio(espacioTeorico,nombre,numeroReservas)
@@ -138,5 +138,7 @@ while opcion != 6:
         dictamenMedico()
     elif opcion==4:
         opcionesAdministrador(dineroRecaudado,numeroReservas)
-    elif opcion == 5:
+    elif opcion==5:
+        facturaElectronica()
+    elif opcion == 6:
         mostrar(espacioTeorico,espacioManejo)
