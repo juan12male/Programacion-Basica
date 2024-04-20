@@ -2,7 +2,8 @@ dineroRecaudado=0
 numeroReservas=0
 ingresoContrasena=""
 contrasena="manejo25"
-espacio=["vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio"]
+espacioTeorico=["vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio"]
+espacioManejo=["vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio","vacio"]
 listaUsuarios=[]
 listaNombres=[]
 nombre=input("Introduzca su nombre y primer apellido: ")
@@ -15,7 +16,7 @@ correoElectronico=input("Ingrese su correo electronico: ")
 def clasesManejo(dineroRecaudado):
         tipoVehiculo = int(input("1.Propio\n2.Proporcionado\n¿Utilizará vehículo propio o proporcionado?:"))
         horas = int(input("¿Cuántas horas desea contratar? "))
-        if horas < 1:
+        if horas > 1:
             print("Debe reservar al menos 1 hora")
         else:
             costoTotal=0
@@ -27,7 +28,7 @@ def clasesManejo(dineroRecaudado):
                 costoTotal=4000*horas
                 dineroRecaudado+=costoTotal
                 print("El costo es de: ",costoTotal)
-            ingresarEspacio(espacio,nombre,numeroReservas)
+            ingresarEspacio(espacioManejo,nombre,numeroReservas)
             opcion=input("Desea factura electrónica?\n1.Sí\n2.No\n")
             if opcion == 1:
                 facturaElectronica()
@@ -78,8 +79,8 @@ def ingresarEspacio(matriz,name,numeroReservas):
     while True:
         print("1.8am a 9am\n2.9am a 10am\n3.10am a 11am\n4.11am a 12md\n5.12md a 1pm\n6.2pm a 3pm\n7.4pm a 5pm")
         horario = int(input("Ingrese el número de horario que prefiera:"))
-        if espacio[horario-1] == "vacio":
-            espacio[horario-1]=nombre
+        if matriz[horario-1] == "vacio":
+            matriz[horario-1]=nombre
             numeroReservas+=1
             break
         else:
@@ -87,7 +88,7 @@ def ingresarEspacio(matriz,name,numeroReservas):
             
         
             
-    return espacio
+    return matriz
 
 
 def liberarHorario(espacio,numeroReservas):
@@ -99,7 +100,15 @@ def liberarHorario(espacio,numeroReservas):
             numeroReservas-=1
             break
 
-def mostrar(matriz):
+def mostrar(espacioTeorico,espacioManejo):
+    print("Desea ver el horario de : \n1.Clases teóricas\n2.Clases de manejo")
+    opcion=(int(input("Ingrese la opción deseada: ")))
+    
+    if opcion == 1:
+        matriz=espacioTeorico
+    elif opcion == 2:
+        matriz=espacioManejo
+    
     print("1.8am a 9am\n2.9am a 10am\n3.10am a 11am\n4.11am a 12md\n5.12md a 1pm\n6.2pm a 3pm\n7.4pm a 5pm")
     for x in range(len(matriz)):
         if matriz[x] == "Vacio":
@@ -122,7 +131,7 @@ while opcion != 6:
     print("1.Curso Teórico\n2.Clases de manejo\n3.Dictámen Médico\n4.Administrador\n5.Horarios disponibles")
     opcion=int(input("Seleccione la opción: "))
     if opcion==1:
-        ingresarEspacio(espacio,nombre,numeroReservas)
+        ingresarEspacio(espacioTeorico,nombre,numeroReservas)
     elif opcion==2:
         clasesManejo(dineroRecaudado)
     elif opcion == 3:
@@ -130,4 +139,4 @@ while opcion != 6:
     elif opcion==4:
         opcionesAdministrador(dineroRecaudado,numeroReservas)
     elif opcion == 5:
-        mostrar(espacio)
+        mostrar(espacioTeorico,espacioManejo)
