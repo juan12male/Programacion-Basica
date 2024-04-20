@@ -7,7 +7,7 @@ listaUsuarios=[]
 listaNombres=[]
 nombre=input("Introduzca su nombre y primer apellido: ")
 listaNombres.append(nombre)
-usuario=input("Invente su usuario: ")
+usuario=input("Escriba su usuario: ")
 listaUsuarios.append(usuario)
 cedula=float(input("Escriba su número de identificación sin espacios y con los ceros:"))
 correoElectronico=input("Ingrese su correo electronico: ")
@@ -85,21 +85,7 @@ def ingresarEspacio(matriz,name,numeroReservas):
         else:
             print("Horario ocupado")
             
-            # elif horario == 2:
-            #     if espacio[1] == "Vacio":
-            #         espacio[1]=nombre
-            #     else:
-            #         print("Horario ocupado")
-            # elif horario == 3:
-            #     if espacio[2] == "Vacio":
-            #         espacio[2]=nombre
-            #     else:
-            #         print("Horario ocupado")
-            # elif horario == 4:
-            #     if espacio[3] == "Vacio":
-            #         espacio[3]=nombre
-            #     else:
-            #         print("Horario ocupado")
+        
             
     return espacio
 
